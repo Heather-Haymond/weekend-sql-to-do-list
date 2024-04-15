@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="./scripts/axios.js"></script>
-  <script src="./scripts/client.js"></script>
-  <title>SQL TO-DO List</title>
-</head>
-<body>
-  <header>
-    <h1>SQL TO-DO List</h1>
-  </header>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./scripts/axios.js"></script>
+    <script src="./scripts/client.js"></script>
+    <title>SQL TO-DO List</title>
+  </head>
+  <body>
+    <header>
+      <h1>SQL TO-DO List</h1>
+      <input data-testid="toDoTextInput" type="text" id="Input" placeholder="Task" />
+      <button onclick="addToDo()" data-testid="submitButton">Submit</button>
+      <!-- <button onclick="toDoButton()"type="button" id="completeButton">Complete</button>
+      <button onclick="deleteButton()"type="button" id="deleteButton">Delete</button> -->
+    </header>
+    <h2>Tasks To Do:</h2>
+    <table>
+      <thead>
+        <th>Task to do</th>
+        <th>Complete</th>
+        <th>Delete</th>
+      </thead>
+      <tbody id="toDoTable">
+      <!-- The tasks go here. -->
+      </tbody>
+    </table>
+  </body>
 </html>
