@@ -19,7 +19,7 @@ function toDo() {
 
 //Rendering Function
 function renderToDo(toDoList) {
-  ctoDoList = response.data;
+  let toDoList = response.data;
   let locateTableBody = document.getElementById("toDoTable");
   locateTableBody.innerHTML = "";
 
