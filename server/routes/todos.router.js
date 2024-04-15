@@ -4,17 +4,17 @@ const pool = require('../modules/pool');
 // GET
 router.get('/', (req, res) => {
   console.log('GET in /toDo');
-  //sql is similar to axios. it directs info to the DB
+  //sql is backend language. Comparison to front end (and backend) Javascript
   const sqlText = `
         SELECT * FROM todos
         ORDER BY id;
 `;
-//pool
+//pool is similar to axios.it directs info to the DB
   pool
       .query(sqlText)
       .then((dbResult) => {
-          let todoTask = dbResult.rows;
-          res.send(todoTask);
+          let toDoTask = dbResult.rows;
+          res.send(toDoTask);
       })
       .catch((dbError) => {
           console.log('Get error in server:', dbError);
@@ -23,8 +23,8 @@ router.get('/', (req, res) => {
 });
     // POST
     router.post('/', (req, res) => {
-      console.log('trying to get the todos!!');
-      let todo = req.body.text;
+      console.log('post toDo');
+      let toDoTask = req.body.text;
       console.log('req.body.text', req.body.text);
       sqlText = `
           INSERT INTO todos
@@ -32,14 +32,13 @@ router.get('/', (req, res) => {
               VALUES ($1);
       `;
       pool.query(sqlText, [text])
-    // here, res.sendStatus is the express variable, don't overwrite with
-    //      .then variable???
+   
     .then((dbRes) => {
-        console.log('successful POST, inserted a row!', dbRes);
-        res.sendStatus(201);
+        console.log('new row!', dbRes);
+        res.sendStatus(200);
     })
     .catch((dbErr) => {
-        console.log('Whoa...server error in POST for /todos:', dbErr);
+        console.log('error', dbErr);
         res.sendStatus(500);
     })
 });
