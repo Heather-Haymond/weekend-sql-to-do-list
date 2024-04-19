@@ -1,2 +1,3 @@
 node_modules
 .DS_Store
+cypress/screenshots/toDoList.cy.js/SQL TO-DO List -- READ Displays initial to-do items upon load -- before each hook (failed).png
